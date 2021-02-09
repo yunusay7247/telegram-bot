@@ -6,7 +6,7 @@ dah lah
 
 oh ya jangan lupa apikey iteach diganti sama apikey kalian 
 caranya kalian tinggal buat akun atau login ke:
-https://api.i-tech.id
+1655786295:AAEB1acJaFsStKY6iIfTa5f0z3LEn_CLaqYhttps://api.i-tech.id
 - lalu kalian buka informasi profile 
 - nah disitu kan ada apikey kalian kalian ganti pakai apikey kalian
 
@@ -21,7 +21,7 @@ instagram : adimas_shadoet
 */
 const Telegraf = require('telegraf')
 
-const bot = new Telegraf('Your_Token')
+const bot = new Telegraf('1655786295:AAEB1acJaFsStKY6iIfTa5f0z3LEn_CLaqY')
 const axios = require('axios')
 const helpMessage = `Katakan sesuatu kepada saya\n/start - untuk memulai bot\n/menu - untuk menampilkan list menu`;
 bot.use((ctx, next) => {
@@ -1201,11 +1201,7 @@ bot.command('crosslogo', ctx => {
     def.shift();
         buku2 = def.join(" ");
 
-    axios.get('http://api.zeks.xyz/api/silktext?text='+buku2+'&apikey=xptnbot352')
-    .then(res => {
-        //console.log(res.data)
-        ctx.replyWithPhoto(res.data.result)
-    })
+    ctx.replyWithPhoto('http://api.zeks.xyz/api/silktext?text='+buku2+'&apikey=xptnbot352')
 })
 bot.command('flowertext', ctx => {
     ctx.reply('Please Wait....')
@@ -1214,11 +1210,7 @@ bot.command('flowertext', ctx => {
     def.shift();
         buku2 = def.join(" ");
 
-    axios.get('http://api.zeks.xyz/api/flowertext?text='+buku2+'&apikey=xptnbot352')
-    .then(res => {
-        //console.log(res.data)
-        ctx.replyWithPhoto(res.data.result)
-    })
+    ctx.replyWithPhoto('http://api.zeks.xyz/api/flowertext?text='+buku2+'&apikey=xptnbot352')
 })
 bot.command('flametext', ctx => {
     ctx.reply('Please Wait....')
@@ -1227,11 +1219,7 @@ bot.command('flametext', ctx => {
     def.shift();
         buku2 = def.join(" ");
 
-    axios.get('http://api.zeks.xyz/api/flametext?text='+buku2+'&apikey=apivinz')
-    .then(res => {
-        //console.log(res.data)
-        ctx.replyWithPhoto(res.data.result)
-    })
+    ctx.replyWithPhoto('http://api.zeks.xyz/api/flametext?text='+buku2+'&apikey=apivinz')
 })
 bot.command('woodentext', ctx => {
     ctx.reply('Please Wait....')
@@ -1240,11 +1228,7 @@ bot.command('woodentext', ctx => {
     def.shift();
         buku2 = def.join(" ");
 
-    axios.get('http://api.zeks.xyz/api/woodentext?text='+buku2+'&apikey=apivinz')
-    .then(res => {
-        //console.log(res.data)
-        ctx.replyWithPhoto(res.data.result)
-    })
+    ctx.replyWithPhoto('http://api.zeks.xyz/api/woodentext?text='+buku2+'&apikey=apivinz')
 })
 bot.command('silktext', ctx => {
     ctx.reply('Please Wait....')
@@ -1253,11 +1237,7 @@ bot.command('silktext', ctx => {
     def.shift();
         buku2 = def.join(" ");
 
-    axios.get('http://api.zeks.xyz/api/silktext?text='+buku2+'&apikey=apivinz')
-    .then(res => {
-        //console.log(res.data)
-        ctx.replyWithPhoto(res.data.result)
-    })
+    ctx.replyWithPhoto('http://api.zeks.xyz/api/silktext?text='+buku2+'&apikey=apivinz')
 })
 bot.command('glowtext', ctx => {
     ctx.reply('Please Wait....')
@@ -1266,11 +1246,7 @@ bot.command('glowtext', ctx => {
     def.shift();
         buku2 = def.join(" ");
 
-    axios.get('http://api.zeks.xyz/api/glowtext?text='+buku2+'&apikey=apivinz')
-    .then(res => {
-        //console.log(res.data)
-        ctx.replyWithPhoto(res.data.result)
-    })
+    ctx.replyWithPhoto('http://api.zeks.xyz/api/glowtext?text='+buku2+'&apikey=apivinz')
 })
 bot.command('smoketext', ctx => {
     ctx.reply('Please Wait....')
@@ -1279,11 +1255,7 @@ bot.command('smoketext', ctx => {
     def.shift();
         buku2 = def.join(" ");
 
-    axios.get('http://api.zeks.xyz/api/smoketext?text='+buku2+'&apikey=apivinz')
-    .then(res => {
-        //console.log(res.data)
-        ctx.replyWithPhoto(res.data.result)
-    })
+    ctx.replyWithPhoto('http://api.zeks.xyz/api/smoketext?text='+buku2+'&apikey=apivinz')
 })
 bot.command('pubglogo', ctx => {
     ctx.reply('Please Wait....')
@@ -1293,11 +1265,7 @@ bot.command('pubglogo', ctx => {
         tek1 = inputArray[0];
         tek2 = inputArray[1];
         //console.log(nama)
-    axios.get('http://api.zeks.xyz/api/pubglogo?text1='+tek1+'&text2='+tek2+'&apikey=apivinz')
-    .then(res => {
-        //console.log(res.data)
-        ctx.replyWithPhoto(res.data.result)
-    })
+    ctx.replyWithPhoto('http://api.zeks.xyz/api/pubglogo?text1='+tek1+'&text2='+tek2+'&apikey=apivinz')
 })
 bot.command('skytext', ctx => {
     ctx.reply('Please Wait....')
@@ -1306,11 +1274,7 @@ bot.command('skytext', ctx => {
     def.shift();
         buku2 = def.join(" ");
 
-    axios.get('http://api.zeks.xyz/api/skytext?text='+buku2+'&apikey=apivinz')
-    .then(res => {
-        //console.log(res.data)
-        ctx.replyWithPhoto(res.data.result)
-    })
+    ctx.replyWithPhoto('http://api.zeks.xyz/api/skytext?text='+buku2+'&apikey=apivinz')
 })
 bot.command('cslogo', ctx => {
     ctx.reply('Please Wait....')
@@ -1319,11 +1283,7 @@ bot.command('cslogo', ctx => {
     def.shift();
         buku2 = def.join(" ");
 
-    axios.get('http://api.zeks.xyz/api/cslogo?text='+buku2+'&apikey=apivinz')
-    .then(res => {
-        //console.log(res.data)
-        ctx.replyWithPhoto(res.data.result)
-    })
+    ctx.replyWithPhoto('http://api.zeks.xyz/api/cslogo?text='+buku2+'&apikey=apivinz')
 })
 bot.command('emojiimage', ctx => {
     ctx.reply('Please Wait....')
@@ -1347,8 +1307,7 @@ bot.command('lightext', ctx => {
 
     axios.get('http://api.zeks.xyz/api/lithgtext?text='+buku2+'&apikey=apivinz')
     .then(res => {
-        //console.log(res.data)
-        ctx.replyWithPhoto(res.data.result)
+    ctx.replyWithPhoto(res.data.result)
     })
 })
 bot.command('retro', ctx => {
@@ -1362,8 +1321,7 @@ bot.command('retro', ctx => {
 
     axios.get(`http://api.zeks.xyz/api/retro?text1=${hi}&text2=${ho}&text3=${ha}&apikey=apivinz`)
     .then(res => {
-        //console.log(res.data)
-        ctx.replyWithPhoto(res.data.result)
+    ctx.replyWithPhoto(res.data.result)
     })
 })
 bot.command('text3dbox', ctx => {
@@ -1373,11 +1331,7 @@ bot.command('text3dbox', ctx => {
     def.shift();
         buku2 = def.join(" ");
 
-    axios.get('http://api.zeks.xyz/api/text3dbox?apikey=apivinz&text='+buku2)
-    .then(res => {
-        //console.log(res.data)
-        ctx.replyWithPhoto(res.data.result)
-    })
+    ctx.replyWithPhoto('http://api.zeks.xyz/api/text3dbox?apikey=apivinz&text='+buku2)
 })
 bot.command('crismes', ctx => {
     ctx.reply('Please Wait....')
