@@ -21,7 +21,7 @@ instagram : adimas_shadoet
 */
 const Telegraf = require('telegraf')
 
-const bot = new Telegraf('1655786295:AAEB1acJaFsStKY6iIfTa5f0z3LEn_CLaqY')
+const bot = new Telegraf('Your_Token')
 const axios = require('axios')
 const helpMessage = `Katakan sesuatu kepada saya\n/start - untuk memulai bot\n/menu - untuk menampilkan list menu`;
 bot.use((ctx, next) => {
