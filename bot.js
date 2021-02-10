@@ -21,7 +21,7 @@ instagram : adimas_shadoet
 */
 const Telegraf = require('telegraf')
 
-const bot = new Telegraf('Your_Token')
+const bot = new Telegraf('1675749539:AAH46KNMRschhJDMuI5dclpp9FnB0znEaK4')
 const axios = require('axios')
 const helpMessage = `Katakan sesuatu kepada saya\n/start - untuk memulai bot\n/menu - untuk menampilkan list menu`;
 bot.use((ctx, next) => {
@@ -1119,6 +1119,9 @@ bot.hears('Nulis', (ctx) => {
                     {text: 'buku 3',callback_data: 'buku3'}
                 ],
                 [
+                    {text: 'buku 4',callback_data: 'buku4'}
+                ],
+                [
                     { text: 'Kembali Ke Menu Utama', callback_data: 'menu'}
                 ]
             ]
@@ -1132,7 +1135,10 @@ bot.action('buku2', ctx => {
     ctx.reply('Berhasil memilih "Buku 2"\nSilahkan Masukan Teks dengan mengetikan : /teks2 [teks kamu]')
 })
 bot.action('buku3', ctx => {
-    ctx.reply('Berhasil memilih "Buku 3"\nSilahkan Masukan Teks dengan mengetikan : /teks3 |nama|kelas|text')
+    ctx.reply('Berhasil memilih "Buku 3"\nSilahkan Masukan Teks dengan mengetikan : /teks3 [teks kamu]')
+})
+bot.action('buku4', ctx => {
+    ctx.reply('Berhasil memilih "Buku 3"\nSilahkan Masukan Teks dengan mengetikan : /teks4 |nama|kelas|text')
 })
 bot.command('teks1', (ctx) => {
     let teks = ctx.message.text;
@@ -1157,6 +1163,14 @@ bot.command('teks2', (ctx) => {
     })
 })
 bot.command('teks3', (ctx) => {
+    let teks1 = ctx.message.text;
+    let def = teks1.split("teks3 ");
+    def.shift();
+        buku2 = def.join(" ");
+        
+    ctx.replyWithPhoto(`https://api.vhtear.com/write?text=${buku2}&apikey=AW62938KK46292gJ73639h`)
+})
+bot.command('teks4', (ctx) => {
     let teks1 = ctx.message.text;
     let def = teks1.split("|");
     def.shift();
@@ -1192,7 +1206,7 @@ bot.command('tahta', ctx => {
     def.shift();
         buku2 = def.join(" ");
 
-    axios.replyWithPhoto('http://api.zeks.xyz/api/hartatahta?text='+buku2+'&apikey=xptnbot352')
+    ctx.replyWithPhoto('https://api.vhtear.com/hartatahta?text='+buku2+'&apikey=AW62938KK46292gJ73639h')
 })
 bot.command('crosslogo', ctx => {
     ctx.reply('Please Wait....')
@@ -1201,7 +1215,7 @@ bot.command('crosslogo', ctx => {
     def.shift();
         buku2 = def.join(" ");
 
-    ctx.replyWithPhoto('http://api.zeks.xyz/api/silktext?text='+buku2+'&apikey=xptnbot352')
+    ctx.replyWithPhoto('https://api.zeks.xyz/api/crosslogo?text='+buku2+'&apikey=xptnbot352')
 })
 bot.command('flowertext', ctx => {
     ctx.reply('Please Wait....')
@@ -1497,7 +1511,7 @@ bot.command('txtgif', ctx => {
     def.shift();
         buku2 = def.join(" ");
 
-    ctx.replyWithPhoto('https://api.vhtear.com/textxgif?text='+buku2+'&apikey=AW62938KK46292gJ73639h')
+    ctx.replyWithVideo('https://api.vhtear.com/textxgif?text='+buku2+'&apikey=AW62938KK46292gJ73639h')
 })
 bot.command('slidingtext', ctx => {
     ctx.reply('Please Wait....')
@@ -1684,6 +1698,15 @@ bot.command('txtimg', ctx => {
         buku2 = def.join(" ");
 
     ctx.replyWithPhoto('http://api-melodicxt-2.herokuapp.com/api/img-text?text='+buku2+'&apiKey=administrator')
+})
+bot.command('neontext', ctx => {
+    ctx.reply('Please Wait....')
+    let teks1 = ctx.message.text;
+    let def = teks1.split("neontext ");
+    def.shift();
+        buku2 = def.join(" ");
+
+    ctx.replyWithPhoto('http://lolhuman.herokuapp.com/api/textprome/neon/'+buku2)
 })
 
 /**********[ Fun Menu ]**********/
