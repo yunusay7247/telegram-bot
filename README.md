@@ -58,7 +58,7 @@ If you find some bugs please contact the WhatsApp number on Contact
 
 #### This script is open to anyone! If you want to add commands, please contribute / pull request! Buying and selling scripts is prohibited!
 - Change [Your_Token](https://github.com/adimas999/telegram-bot/blob/428cdebb22cf0912cb32997ecd4d0e87401c77b2/bot.js#L24) in bot.js to be your token
-- Change 
+- Change iteach with your [apikey](https://github.com/adimas999/telegram-bot/blob/d948992b1902933305c9bca651fe75a8f173ffc0/bot.js#L29)
 ### Tutorial
 <p align="center">
 <img src="https://d.top4top.io/p_1866qt35i0.jpg" alt="JPG" width="200" height="280"/>
