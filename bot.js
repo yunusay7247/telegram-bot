@@ -23,6 +23,12 @@ const Telegraf = require('telegraf')
 
 const bot = new Telegraf('1675749539:AAH46KNMRschhJDMuI5dclpp9FnB0znEaK4')
 const axios = require('axios')
+
+/*********[ Apikey ]*********/
+let lolhuman = '99ecdb09b1053d90fbc15d56'
+let iteach = 'Ganti pakai apikey kalian' //silahkan login/register di https://api.i-tech.id untuk mendapatkan apikey
+/***************************/
+
 const helpMessage = `Katakan sesuatu kepada saya\n/start - untuk memulai bot\n/menu - untuk menampilkan list menu`;
 bot.use((ctx, next) => {
   if(ctx.updateSubTypes[0] == "text"){
@@ -626,7 +632,7 @@ bot.hears('Random quotes EN', (ctx) => {
 })
 bot.hears('Kata bijak', (ctx) => {
     ctx.deleteMessage()
-    axios.get('http://lolhuman.herokuapp.com/api/random/katabijak')
+    axios.get('lolhuman.herokuapp.com/api/random/katabijak?apikey='+lolhuman)
     .then(res => {
          //console.log(res);
          ctx.reply("Kata : "+res.data.result);
@@ -636,7 +642,7 @@ bot.hears('Kata bijak', (ctx) => {
 })
 bot.hears('Corona Indonesia', (ctx) => {
     ctx.deleteMessage()
-    axios.get('http://lolhuman.herokuapp.com/api/corona/indonesia')
+    axios.get('lolhuman.herokuapp.com/api/corona/indonesia?apikey='+lolhuman)
     .then(res => {
          //console.log(res);
          ctx.reply("Positif : "+res.data.result.positif+"\nSembuh : "+res.data.result.sembuh+"\nDirawat : "+res.data.result.dirawat+"\nMeninggal : "+res.data.result.meninggal);
@@ -661,7 +667,7 @@ bot.hears('Bucin', (ctx) => {
     })
 })
 bot.action('bucin', (ctx) => {
-    axios.get('http://lolhuman.herokuapp.com/api/random/bucin')
+    axios.get('http://lolhuman.herokuapp.com/api/random/bucin?apikey='+lolhuman)
     .then(res => {
          //console.log(res);
          ctx.reply("Bucin : "+res.data.result);
@@ -670,7 +676,7 @@ bot.action('bucin', (ctx) => {
    })
 })
 bot.action('bucin1', (ctx) => {
-    axios.get('http://lolhuman.herokuapp.com/api/random/katabucin')
+    axios.get('http://lolhuman.herokuapp.com/api/random/katabucin?apikey='+lolhuman)
     .then(res => {
          //console.log(res);
          ctx.reply("Bucin : "+res.data.result);
@@ -788,7 +794,7 @@ bot.hears('Random nama', (ctx) => {
                 ],
                 [
                     { text: 'Random', callback_data: 'randomnama'}
-                ]
+                ],
                 [
                     { text: 'Kembali Ke Menu Utama', callback_data: 'menu'}
                 ]
@@ -797,16 +803,16 @@ bot.hears('Random nama', (ctx) => {
     })
 })
 bot.action('namapria', (ctx) => {
-    axios.get('https://api.i-tech.id/tools/nama?key=gxt8Hi-RFV5sp-2y2b45-5ACcEU-Drgc8j&gender=male')
+    axios.get('https://api.i-tech.id/tools/nama?key='+iteach+'&gender=male')
     .then(res => {
-        //console.log(res);
-        ctx.reply("Nama : "+res.data.result)
+        console.log(res);
+        //ctx.reply("Nama : "+res.data.result)
     }).catch(e => {
         console.log(e);
     })
 })
 bot.action('namawanita', (ctx) => {
-    axios.get('https://api.i-tech.id/tools/nama?key=gxt8Hi-RFV5sp-2y2b45-5ACcEU-Drgc8j&gender=female')
+    axios.get('https://api.i-tech.id/tools/nama?key='+iteach+'&gender=female')
     .then(res => {
         //console.log(res);
         ctx.reply("Nama : "+res.data.result)
@@ -816,7 +822,7 @@ bot.action('namawanita', (ctx) => {
 })
 bot.action('randomnama'), (ctx) => {
     const gender = ['male','female']
-    axios.get('https://api.i-tech.id/tools/nama?key=gxt8Hi-RFV5sp-2y2b45-5ACcEU-Drgc8j&gender='+gender)
+    axios.get('https://api.i-tech.id/tools/nama?key='+iteach+'&gender='+gender)
     .then(res => {
         //console.log(res);
         ctx.reply("Nama : "+res.data.result)
@@ -826,7 +832,7 @@ bot.action('randomnama'), (ctx) => {
 }
 bot.hears('Fakta unik', (ctx) => {
     ctx.reply("Please waitt...")
-    axios.get('https://api.i-tech.id/tools/fakta?key=gxt8Hi-RFV5sp-2y2b45-5ACcEU-Drgc8j')
+    axios.get('https://api.i-tech.id/tools/fakta?key='+iteach)
     .then(res => {
         //console.log(res.data);
         ctx.reply("Fakta : "+res.data.result)
@@ -1032,7 +1038,7 @@ bot.action('dadu6', ctx => {
 
 bot.hears('Random asu', ctx => {
     ctx.reply("Please waitt...")
-    axios.get('https://api.i-tech.id/tools/asu?key=gxt8Hi-RFV5sp-2y2b45-5ACcEU-Drgc8j')
+    axios.get('https://api.i-tech.id/tools/asu?key='+iteach)
     .then(res => {
         //console.log(res.data.result);
         ctx.replyWithPhoto(res.data.result)
@@ -1042,7 +1048,7 @@ bot.hears('Random asu', ctx => {
 })
 bot.hears('Random rubah', ctx => {
     ctx.reply("Please waitt...")
-    axios.get('https://api.i-tech.id/tools/foxes?key=gxt8Hi-RFV5sp-2y2b45-5ACcEU-Drgc8j')
+    axios.get('https://api.i-tech.id/tools/foxes?key='+iteach)
     .then(res => {
         //console.log(res.data.result);
         ctx.replyWithPhoto(res.data.result)
@@ -1052,7 +1058,7 @@ bot.hears('Random rubah', ctx => {
 })
 bot.hears('Random kambing', ctx => {
     ctx.reply("Please waitt...")
-    axios.get('https://api.i-tech.id/tools/goat?key=gxt8Hi-RFV5sp-2y2b45-5ACcEU-Drgc8j')
+    axios.get('https://api.i-tech.id/tools/goat?key='+iteach)
     .then(res => {
         //console.log(res.data.result);
         ctx.replyWithPhoto(res.data.result)
@@ -1062,7 +1068,7 @@ bot.hears('Random kambing', ctx => {
 })
 bot.hears('Random panda', ctx => {
     ctx.reply("Please waitt...")
-    axios.get('https://api.i-tech.id/tools/panda?key=gxt8Hi-RFV5sp-2y2b45-5ACcEU-Drgc8j')
+    axios.get('https://api.i-tech.id/tools/panda?key='+iteach)
     .then(res => {
         //console.log(res.data.result);
         ctx.replyWithPhoto(res.data.result)
@@ -1072,7 +1078,7 @@ bot.hears('Random panda', ctx => {
 })
 bot.hears('Random burung', ctx => {
     ctx.reply("Please waitt...")
-    axios.get('https://api.i-tech.id/tools/bird?key=gxt8Hi-RFV5sp-2y2b45-5ACcEU-Drgc8j')
+    axios.get('https://api.i-tech.id/tools/bird?key='+iteach)
     .then(res => {
         //console.log(res.data.result);
         ctx.replyWithPhoto(res.data.result)
@@ -1082,7 +1088,7 @@ bot.hears('Random burung', ctx => {
 })
 bot.hears('Random tupai', ctx => {
     ctx.reply("Please waitt...")
-    axios.get('https://api.i-tech.id/tools/fox?key=gxt8Hi-RFV5sp-2y2b45-5ACcEU-Drgc8j')
+    axios.get('https://api.i-tech.id/tools/fox?key='+iteach)
     .then(res => {
         //console.log(res.data.result);
         ctx.replyWithPhoto(res.data.result)
@@ -1092,7 +1098,7 @@ bot.hears('Random tupai', ctx => {
 })
 bot.hears('Random koala', ctx => {
     ctx.reply("Please waitt...")
-    axios.get('https://api.i-tech.id/tools/koala?key=gxt8Hi-RFV5sp-2y2b45-5ACcEU-Drgc8j')
+    axios.get('https://api.i-tech.id/tools/koala?key='+iteach)
     .then(res => {
         //console.log(res.data.result);
         ctx.replyWithPhoto(res.data.result)
@@ -1706,7 +1712,7 @@ bot.command('neontext', ctx => {
     def.shift();
         buku2 = def.join(" ");
 
-    ctx.replyWithPhoto('http://lolhuman.herokuapp.com/api/textprome/neon/'+buku2)
+    ctx.replyWithPhoto('http://lolhuman.herokuapp.com/api/textprome/neon/'+buku2+'?apikey='+lolhuman)
 })
 
 /**********[ Fun Menu ]**********/
@@ -2692,7 +2698,7 @@ bot.hears('Random Loli', (ctx) => {
    })
 })
 bot.hears('Random Elf', (ctx) => { 
-    axios.get('http://lolhuman.herokuapp.com/api/random/elf')
+    axios.get('http://lolhuman.herokuapp.com/api/random/elf?apikey='+lolhuman)
     .then(res => {
          //console.log(res); 
          let la = res.data.result
@@ -2702,7 +2708,7 @@ bot.hears('Random Elf', (ctx) => {
    })
 })
 bot.hears('Random Waifu', (ctx) => { 
-    axios.get('http://lolhuman.herokuapp.com/api/random/waifu')
+    axios.get('http://lolhuman.herokuapp.com/api/random/waifu?apikey='+lolhuman)
     .then(res => {
          //console.log(res); 
          let la = res.data.result
@@ -2712,7 +2718,7 @@ bot.hears('Random Waifu', (ctx) => {
    })
 })
 bot.hears('Random Shota', (ctx) => { 
-    axios.get('http://lolhuman.herokuapp.com/api/random/shota')
+    axios.get('http://lolhuman.herokuapp.com/api/random/shota?apikey='+lolhuman)
     .then(res => {
          //console.log(res); 
          let la = res.data.result
@@ -2722,7 +2728,7 @@ bot.hears('Random Shota', (ctx) => {
    })
 })
 bot.hears('Random Husbu', (ctx) => { 
-    axios.get('http://lolhuman.herokuapp.com/api/random/husbu')
+    axios.get('http://lolhuman.herokuapp.com/api/random/husbu?apikey='+lolhuman)
     .then(res => {
          //console.log(res); 
          let la = res.data.result
@@ -2732,7 +2738,7 @@ bot.hears('Random Husbu', (ctx) => {
    })
 })
 bot.hears('Random Shinobu', (ctx) => { 
-    axios.get('http://lolhuman.herokuapp.com/api/random/shinobu')
+    axios.get('http://lolhuman.herokuapp.com/api/random/shinobu?apikey='+lolhuman)
     .then(res => {
          //console.log(res); 
          let la = res.data.result
@@ -2742,7 +2748,7 @@ bot.hears('Random Shinobu', (ctx) => {
    })
 })
 bot.hears('Random Megumin', (ctx) => { 
-    axios.get('http://lolhuman.herokuapp.com/api/random/megumin')
+    axios.get('http://lolhuman.herokuapp.com/api/random/megumin?apikey='+lolhuman)
     .then(res => {
          //console.log(res); 
          let la = res.data.result
@@ -2752,7 +2758,7 @@ bot.hears('Random Megumin', (ctx) => {
    })
 })
 bot.hears('Random Anime Art', (ctx) => { 
-    axios.get('http://lolhuman.herokuapp.com/api/random/art')
+    axios.get('http://lolhuman.herokuapp.com/api/random/art?apikey='+lolhuman)
     .then(res => {
          //console.log(res); 
          let la = res.data.result
@@ -2762,7 +2768,7 @@ bot.hears('Random Anime Art', (ctx) => {
    })
 })
 bot.hears('Random Walpaper Anime', (ctx) => { 
-    axios.get('http://lolhuman.herokuapp.com/api/random/wallnime')
+    axios.get('http://lolhuman.herokuapp.com/api/random/wallnime?apikey='+lolhuman)
     .then(res => {
          //console.log(res); 
          let la = res.data.result
@@ -3343,7 +3349,7 @@ bot.hears('Random Hentai', (ctx) => {
    })
 })
 bot.hears('NSFW Neko', (ctx) => { 
-    axios.get('http://lolhuman.herokuapp.com/api/random/nsfw/neko')
+    axios.get('http://lolhuman.herokuapp.com/api/random/nsfw/neko?apikey='+lolhuman)
     .then(res => { 
          let la = res.data.result
          ctx.replyWithPhoto(la)
@@ -3352,7 +3358,7 @@ bot.hears('NSFW Neko', (ctx) => {
    })
 })
 bot.hears('NSFW Waifu', (ctx) => { 
-    axios.get('http://lolhuman.herokuapp.com/api/random/nsfw/waifu')
+    axios.get('http://lolhuman.herokuapp.com/api/random/nsfw/waifu?apikey='+lolhuman)
     .then(res => { 
          let la = res.data.result
          ctx.replyWithPhoto(la)
@@ -3361,7 +3367,7 @@ bot.hears('NSFW Waifu', (ctx) => {
    })
 })
 bot.hears('ECCHI', (ctx) => { 
-    axios.get('http://lolhuman.herokuapp.com/api/random/nsfw/ecchi')
+    axios.get('http://lolhuman.herokuapp.com/api/random/nsfw/ecchi?apikey='+lolhuman)
     .then(res => { 
          let la = res.data.result
          ctx.replyWithPhoto(la)
@@ -3370,7 +3376,7 @@ bot.hears('ECCHI', (ctx) => {
    })
 })
 bot.hears('Ahegao', (ctx) => { 
-    axios.get('http://lolhuman.herokuapp.com/api/random/nsfw/ahegao')
+    axios.get('http://lolhuman.herokuapp.com/api/random/nsfw/ahegao?apikey='+lolhuman)
     .then(res => { 
          let la = res.data.result
          ctx.replyWithPhoto(la)
@@ -3379,7 +3385,7 @@ bot.hears('Ahegao', (ctx) => {
    })
 })
 bot.hears('Holo Lewd', (ctx) => { 
-    axios.get('http://lolhuman.herokuapp.com/api/random/nsfw/hololewd')
+    axios.get('http://lolhuman.herokuapp.com/api/random/nsfw/hololewd?apikey='+lolhuman)
     .then(res => { 
          let la = res.data.result
          ctx.replyWithPhoto(la)
@@ -3388,7 +3394,7 @@ bot.hears('Holo Lewd', (ctx) => {
    })
 })
 bot.hears('Side Oppai', (ctx) => { 
-    axios.get('http://lolhuman.herokuapp.com/api/random/nsfw/sideoppai')
+    axios.get('http://lolhuman.herokuapp.com/api/random/nsfw/sideoppai?apikey='+lolhuman)
     .then(res => { 
          let la = res.data.result
          ctx.replyWithPhoto(la)
@@ -3397,7 +3403,7 @@ bot.hears('Side Oppai', (ctx) => {
    })
 })
 bot.hears('Anime Feets', (ctx) => { 
-    axios.get('http://lolhuman.herokuapp.com/api/random/nsfw/animefeets')
+    axios.get('http://lolhuman.herokuapp.com/api/random/nsfw/animefeets?apikey='+lolhuman)
     .then(res => { 
          let la = res.data.result
          ctx.replyWithPhoto(la)
@@ -3406,7 +3412,7 @@ bot.hears('Anime Feets', (ctx) => {
    })
 })
 bot.hears('Anime Booty', (ctx) => { 
-    axios.get('http://lolhuman.herokuapp.com/api/random/nsfw/animebooty')
+    axios.get('http://lolhuman.herokuapp.com/api/random/nsfw/animebooty?apikey='+lolhuman)
     .then(res => { 
          let la = res.data.result
          ctx.replyWithPhoto(la)
@@ -3415,7 +3421,7 @@ bot.hears('Anime Booty', (ctx) => {
    })
 })
 bot.hears('Anime Thighss', (ctx) => { 
-    axios.get('http://lolhuman.herokuapp.com/api/random/nsfw/animethighss')
+    axios.get('http://lolhuman.herokuapp.com/api/random/nsfw/animethighss?apikey='+lolhuman)
     .then(res => { 
          let la = res.data.result
          ctx.replyWithPhoto(la)
@@ -3424,7 +3430,7 @@ bot.hears('Anime Thighss', (ctx) => {
    })
 })
 bot.hears('Hentai Paradise', (ctx) => { 
-    axios.get('http://lolhuman.herokuapp.com/api/random/nsfw/hentaiparadise')
+    axios.get('http://lolhuman.herokuapp.com/api/random/nsfw/hentaiparadise?apikey='+lolhuman)
     .then(res => { 
          let la = res.data.result
          ctx.replyWithPhoto(la)
@@ -3433,7 +3439,7 @@ bot.hears('Hentai Paradise', (ctx) => {
    })
 })
 bot.hears('Anime Arm Pits', (ctx) => { 
-    axios.get('http://lolhuman.herokuapp.com/api/random/nsfw/animearmpits')
+    axios.get('http://lolhuman.herokuapp.com/api/random/nsfw/animearmpits?apikey='+lolhuman)
     .then(res => { 
          let la = res.data.result
          ctx.replyWithPhoto(la)
@@ -3442,7 +3448,7 @@ bot.hears('Anime Arm Pits', (ctx) => {
    })
 })
 bot.hears('Hentai Femdom', (ctx) => { 
-    axios.get('http://lolhuman.herokuapp.com/api/random/nsfw/hentaifemdom')
+    axios.get('http://lolhuman.herokuapp.com/api/random/nsfw/hentaifemdom?apikey='+lolhuman)
     .then(res => { 
          let la = res.data.result
          ctx.replyWithPhoto(la)
@@ -3451,7 +3457,7 @@ bot.hears('Hentai Femdom', (ctx) => {
    })
 })
 bot.hears('Lewd Anime Girls', (ctx) => { 
-    axios.get('http://lolhuman.herokuapp.com/api/random/nsfw/lewdanimegirls')
+    axios.get('http://lolhuman.herokuapp.com/api/random/nsfw/lewdanimegirls?apikey='+lolhuman)
     .then(res => { 
          let la = res.data.result
          ctx.replyWithPhoto(la)
@@ -3460,7 +3466,7 @@ bot.hears('Lewd Anime Girls', (ctx) => {
    })
 })
 bot.hears('Big Anime Tiddies', (ctx) => { 
-    axios.get('http://lolhuman.herokuapp.com/api/random/nsfw/biganimetiddies')
+    axios.get('http://lolhuman.herokuapp.com/api/random/nsfw/biganimetiddies?apikey='+lolhuman)
     .then(res => { 
          let la = res.data.result
          ctx.replyWithPhoto(la)
@@ -3469,7 +3475,7 @@ bot.hears('Big Anime Tiddies', (ctx) => {
    })
 })
 bot.hears('Anime Belly Button', (ctx) => { 
-    axios.get('http://lolhuman.herokuapp.com/api/random/nsfw/animebellybutton')
+    axios.get('http://lolhuman.herokuapp.com/api/random/nsfw/animebellybutton?apikey='+lolhuman)
     .then(res => { 
          let la = res.data.result
          ctx.replyWithPhoto(la)
@@ -3478,7 +3484,7 @@ bot.hears('Anime Belly Button', (ctx) => {
    })
 })
 bot.hears('Hentai Everyone', (ctx) => { 
-    axios.get('http://lolhuman.herokuapp.com/api/random/nsfw/hentai4everyone')
+    axios.get('http://lolhuman.herokuapp.com/api/random/nsfw/hentai4everyone?apikey='+lolhuman)
     .then(res => { 
          let la = res.data.result
          ctx.replyWithPhoto(la)
