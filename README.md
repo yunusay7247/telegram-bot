@@ -24,6 +24,10 @@
 </P>
 </P>
 
+### Note
+
+- Kalau fitur nya ada yang tidak bisa berarti rest api nya yang lagi error
+
 ### My Profile
 
 - [PROFILE](https://devils1.yolasite.com/)
